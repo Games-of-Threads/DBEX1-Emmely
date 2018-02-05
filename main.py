@@ -1,4 +1,5 @@
-# This is the code you can run at http://tpcg.io/xsIiIN
+# This is the code you can run at http://tpcg.io/IcT1Tz
+
 # I put this here so you as a reader doen't need to install Python on your local machine in order to try this program.
 # Note that the STORE class doen't need to be imported from a module in this code.
 

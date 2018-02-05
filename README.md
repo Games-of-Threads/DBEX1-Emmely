@@ -27,7 +27,7 @@ A Python Dictionary can hold any object type so in this implementation the value
 ------------------
 ## How to Run an Example Online (no Python installation needed)
 
-If you don't have Python installed and want to test the program you can use this option. [Paste the content in main.py to this page and hit execute](https://www.tutorialspoint.com/execute_python_online.php).You can test the Class direcly without importing it as a module. You can however not see any of the created files therefor I have uploaded the resulting files in the folder "fruits".
+If you don't have Python installed and want to test the program you can use this option. [Go to this link](http://tpcg.io/IcT1Tz) or [Paste the content in main.py to this page and hit execute](https://www.tutorialspoint.com/execute_python_online.php) .You can test the Class direcly without importing it as a module. You can however not see any of the created files therefor I have uploaded the resulting files in the folder "fruits".
 
 ## How to Run the Example Program with Python Installed
 
