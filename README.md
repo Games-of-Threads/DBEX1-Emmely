@@ -3,32 +3,31 @@ This is a mini project for the database course. The excersise is based off the d
 ## Description
 ### Simple DB with Hashmap-based Index
 My program is a Python Class that can be imported as a module with the following functionality:
-- Implements a Hashmap-based index in Python  called Dictionary.
+- Implements a Hashmap-based index in Python a HashMap is called Dictionary.
 - Implements functionality to store your data on disk in a binary file.
 - Implements functionality to read your data from disk again, so that you can reinstantiate your database after a shutdown.
-Hint: You do not want to serialize and dematerialize the an in memory Hashmap containing all data directly. Instead, you in memory index based on a Hashmap contains information on where in you database file a piece of information is stored.
-The result is a Python module which can be used in any Python (3) program. 
+
 
 In short what the program does:
 - It keeps a in-memory Dictionary of all the keys (and some values) in the Key-Value store.
-- For every read the in-memory is updated with the value. Making reads of common values fast.
+- For every read the in-memory Dictionary is updated with the value. Making reads of common values fast.
 - The in memory also holds all the keys so be it that a none existing key is asked for the in-memory Dictionary can also answer fast. 
-- When a key-value pair is asked to be persisted then it saves only the key to the in-memory Dictionary. The in-memory Dictionary is also saved as a binary-file for back up.
-- The value to be persisted is saved in one out of 10 Dictionaries as a key-value pair. This Dictionary is always saved to disk as a binary.
-The hashed key determines suffix  of the file to load and save to.
+- When a key-value pair is to be persisted or updated. It saves the key to the in-memory Dictionary. The in-memory Dictionary is also saved as a binary-file for back up in this operation.
+- The value to be persisted is saved in one out of 10 Dictionaries as a key-value pair. This Dictionary is always saved to disk as a binary. 
+A hash value of the key determines suffix of the file to load and save to. 
 The reason that the values are persisted in 10 equal files is that we can store the key values independent of the RAM.
 
 [Inspiration to the solution](http://blog.gainlo.co/index.php/2016/06/14/design-a-key-value-store-part-i/)
 
 
 ------------------
-## How to run example with out installation (example program)
-[Paste the content in main.py to this page and hit execute](https://www.tutorialspoint.com/execute_python_online.php)
-If you don't have python installled and want to test the program you can use this option. You can test the Class direcly without importing it as a module. You can however not see any of the created files therefor I have uploaded the resulting files in the folder "fruits".
+## How to run example online (no Python installation needed)
+
+If you don't have python installled and want to test the program you can use this option. [Paste the content in main.py to this page and hit execute](https://www.tutorialspoint.com/execute_python_online.php).You can test the Class direcly without importing it as a module. You can however not see any of the created files therefor I have uploaded the resulting files in the folder "fruits".
 
 ## How to run the example program with Python installed
 
-- Pre-conditions: Have Python installed. If you do not have Python 3 installed. [Follow this guide for linux](http://docs.python-guide.org/en/latest/starting/install3/linux/)
+- Pre-conditions: Have Python installed. If you do not have Python 3 installed. [Follow this guide for Linux](http://docs.python-guide.org/en/latest/starting/install3/linux/)
 or [this guide for Windows](https://www.python.org/downloads/)
 
 To run the example program, simply start by cloning this repository. From your preferred terminal. (I'm using git bash)
@@ -49,6 +48,20 @@ In your Python program import the store module and instantiate a STORE like this
 ```
 import store.
 mystore = store.STORE('fruits')
+
+store.tell_me_about_the_store()
+store.put_val( 'ananas' ,  '111' )
+store.put_val( 'mango' ,  [1,2,3,] )
+store.put_val( 'banana' ,  {'333':333} )
+
+store.put_val( 'apple' ,  '222' )
+store.put_val( 'pear' ,  '333' )
+print(store.read_val('pear'))
+store.read_val( 'apple' )
+print(store.get_all())
+store.delete_val('pear')
+print (store.get_all())
+print (store.get_all_by_type())
 
 ```
 
@@ -76,6 +89,10 @@ mystore = store.STORE('fruits')
 - This will return a Python Dictionary of all data as key-type of value. Probably not so smart if the dataset becomes huge
 
 ```[instance].get_all_by_type()```
+
+- Info about the database
+
+```[instance].tell_me_about_the_store()```
 
 
 
