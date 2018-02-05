@@ -36,6 +36,10 @@ class STORE:
             #Loading The existing store
         store[key] = value # type independent
         pickle.dump( store, open( disk_file , "wb" ) )
+        ## only keys persisted
+        for k in self.memory:
+            self.memory[k] = None
+        pickle.dump( self.memory, open( self.dbname , "wb" ) )
         
     def read_val(self, key):
         suffix = str(hash( key ))[-1]
