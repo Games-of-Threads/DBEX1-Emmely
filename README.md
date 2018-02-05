@@ -72,9 +72,10 @@ print (store.get_all_by_type())
 
 
 - The database is initialized with a new STORE instance. A empty database is saved to binary file by this command. An existing database is loaded with this command.
+
 ```[instance] = STORE(<string>)```
  
-- This will save the data in the key value store. the key must be string. Value can be any Python type.
+- This will save the data in the key value store. the key must be string. Value can be any object type.
 
 ```[instance].put_val( <key as string> ,  <value> )```
 
@@ -90,7 +91,7 @@ print (store.get_all_by_type())
 
 ```[instance].get_all()```
 
-- This will return a Python Dictionary of all data as key-object type value. Probably not so smart if the dataset becomes huge
+- This will return a Python Dictionary of all data as key-object type. Probably not so smart if the dataset becomes huge
 
 ```[instance].get_all_by_type()```
 
