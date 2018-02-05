@@ -99,6 +99,10 @@ print (store.get_all_by_type())
 
 ```[instance].tell_me_about_the_store()```
 
+- Prints the in-memory Dictionary
+
+```[instance].print_in_mem()```
+
 
 
 

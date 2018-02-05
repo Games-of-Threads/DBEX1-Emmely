@@ -38,9 +38,10 @@ class STORE:
         store[key] = value # type independent
         pickle.dump( store, open( disk_file , "wb" ) )
         ## only keys persisted
+        z = {}
         for k in self.memory:
-            self.memory[k] = None
-        pickle.dump( self.memory, open( self.dbname , "wb" ) )
+            z[k] = None
+        pickle.dump( z, open( self.dbname , "wb" ) )
         
     def read_val(self, key):
         suffix = str(hash( key ))[-1]
@@ -59,7 +60,7 @@ class STORE:
                         print('Key does not exist')
                         return None
         else:
-            print('ERROR: No key in memory');
+            print('Varning: No key in memory');
             return None
     def delete_val(self, key):
         suffix = str(hash( key ))[-1]
@@ -95,6 +96,8 @@ class STORE:
                     for k in store:
                         z[k] = type(store[k])
         return z
+    def print_in_mem(self):
+        print(self.memory)
         
 # Call class
 store = STORE("fruits")
