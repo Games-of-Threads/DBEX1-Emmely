@@ -7,15 +7,21 @@ My program is a Python Class that can be imported as a module. Following functio
 - Implements functionality to store your data on disk in a binary file.
 - Implements functionality to read your data from disk again, so that you can reinstantiate your database after a shutdown.
 
+### Little bit about the implementation
+
 
 In short what the program does:
 - It keeps a in-memory Dictionary of all the keys (and some values) in the Key-Value store.
 - For every read the in-memory Dictionary is updated with the value. Making reads of common values fast.
-- The in memory also holds all the keys so be it that a none existing key is asked for the in-memory Dictionary can also answer fast. 
+- The in memory also holds all the keys.
 - When a key-value pair is to be persisted or updated. It saves the key to the in-memory Dictionary. The in-memory Dictionary is also saved as a binary-file for back up in this operation.
 - The value to be persisted is saved in one out of 10 Dictionaries as a key-value pair. This Dictionary is always saved to disk as a binary. 
 A hash value of the key determines suffix of the file to load or save to. 
 The reason that the values are persisted in 10 equal files is that we can store the key values independent of the RAM. [Inspiration to the solution](http://blog.gainlo.co/index.php/2016/06/14/design-a-key-value-store-part-i/)
+
+This Python library [Pickle](https://docs.python.org/3.1/library/pickle.html) was chosen for the marshaling and unmarshaling of the Dictionary.
+A Python Dictionary can hold any object type so in this implementation the values in the database can be of mixed types.
+
 
 
 ------------------
@@ -84,13 +90,15 @@ print (store.get_all_by_type())
 
 ```[instance].get_all()```
 
-- This will return a Python Dictionary of all data as key-type of value. Probably not so smart if the dataset becomes huge
+- This will return a Python Dictionary of all data as key-object type value. Probably not so smart if the dataset becomes huge
 
 ```[instance].get_all_by_type()```
 
 - Info about the database
 
 ```[instance].tell_me_about_the_store()```
+
+
 
 
 
