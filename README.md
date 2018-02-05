@@ -1,9 +1,9 @@
 # Database exercise 1 (Key-Value Stores)
-This is a mini project for the database course. The excersise is based off the description in the buttom of this [resource](https://github.com/datsoftlyngby/soft2018spring-databases-teaching-material/blob/master/lecture_notes/01-Intro_to_DB.ipynb)
+This is a mini project for the database course. The exercise is based off the description in the bottom of this [resource](https://github.com/datsoftlyngby/soft2018spring-databases-teaching-material/blob/master/lecture_notes/01-Intro_to_DB.ipynb)
 ## Description
 ### Simple DB with Hashmap-based Index
-My program is a Python Class that can be imported as a module with the following functionality:
-- Implements a Hashmap-based index in Python a HashMap is called Dictionary.
+My program is a Python Class that can be imported as a module. Following functionality is implemented:
+- Implements a Hashmap-based index. In Python a HashMap is called Dictionary.
 - Implements functionality to store your data on disk in a binary file.
 - Implements functionality to read your data from disk again, so that you can reinstantiate your database after a shutdown.
 
@@ -14,18 +14,16 @@ In short what the program does:
 - The in memory also holds all the keys so be it that a none existing key is asked for the in-memory Dictionary can also answer fast. 
 - When a key-value pair is to be persisted or updated. It saves the key to the in-memory Dictionary. The in-memory Dictionary is also saved as a binary-file for back up in this operation.
 - The value to be persisted is saved in one out of 10 Dictionaries as a key-value pair. This Dictionary is always saved to disk as a binary. 
-A hash value of the key determines suffix of the file to load and save to. 
-The reason that the values are persisted in 10 equal files is that we can store the key values independent of the RAM.
-
-[Inspiration to the solution](http://blog.gainlo.co/index.php/2016/06/14/design-a-key-value-store-part-i/)
+A hash value of the key determines suffix of the file to load or save to. 
+The reason that the values are persisted in 10 equal files is that we can store the key values independent of the RAM. [Inspiration to the solution](http://blog.gainlo.co/index.php/2016/06/14/design-a-key-value-store-part-i/)
 
 
 ------------------
-## How to run example online (no Python installation needed)
+## How to Run an Example Online (no Python installation needed)
 
-If you don't have python installled and want to test the program you can use this option. [Paste the content in main.py to this page and hit execute](https://www.tutorialspoint.com/execute_python_online.php).You can test the Class direcly without importing it as a module. You can however not see any of the created files therefor I have uploaded the resulting files in the folder "fruits".
+If you don't have Python installed and want to test the program you can use this option. [Paste the content in main.py to this page and hit execute](https://www.tutorialspoint.com/execute_python_online.php).You can test the Class direcly without importing it as a module. You can however not see any of the created files therefor I have uploaded the resulting files in the folder "fruits".
 
-## How to run the example program with Python installed
+## How to Run the Example Program with Python Installed
 
 - Pre-conditions: Have Python installed. If you do not have Python 3 installed. [Follow this guide for Linux](http://docs.python-guide.org/en/latest/starting/install3/linux/)
 or [this guide for Windows](https://www.python.org/downloads/)
@@ -40,9 +38,9 @@ python example.py
 ```
 The output of the program is printed.
 
-## How to use the STORE Class as a module
+## How to Use the STORE Class as a Module
 
-Because store.py is a local library I recommand to put this file in the same directory as your Python program.
+Because store.py is a local library I recommend to put this file in the same directory as your Python program.
 In your Python program import the store module and instantiate a STORE like this code example shows:
 
 ```
@@ -67,7 +65,7 @@ print (store.get_all_by_type())
 
 
 
-- The database is initalized with a new STORE instance. A empty database is saved to binaryfile by this command. An existing database is loaded with this command.
+- The database is initialized with a new STORE instance. A empty database is saved to binary file by this command. An existing database is loaded with this command.
 ```[instance] = STORE(<string>)```
  
 - This will save the data in the key value store. the key must be string. Value can be any Python type.
