@@ -103,3 +103,5 @@ print (store.get_all_by_type())
 
 
 -------------
+
+Implementation by Emmely Lundberg cph-el69
