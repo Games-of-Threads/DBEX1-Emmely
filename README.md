@@ -13,7 +13,7 @@ My program is a Python Class that can be imported as a module. Following functio
 In short what the program does:
 - It keeps a in-memory Dictionary of all the keys (and some values) in the Key-Value store.
 - For every read the in-memory Dictionary is updated with the value. Making reads of common values fast.
-- The in memory also holds all the keys.
+- The in memory also holds all the keys. If a none existing key is asked for there is no need to read from disk making this operation fast.
 - When a key-value pair is to be persisted or updated. It saves the key to the in-memory Dictionary. The in-memory Dictionary is also saved as a binary-file for back up in this operation.
 - The value to be persisted is saved in one out of 10 Dictionaries as a key-value pair. This Dictionary is always saved to disk as a binary. 
 A hash value of the key determines suffix of the file to load or save to. 
