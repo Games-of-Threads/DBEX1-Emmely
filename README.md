@@ -71,7 +71,7 @@ print (store.get_all_by_type())
 
 
 
-- The database is initialized with a new STORE instance. A empty database is saved to binary file by this command. An existing database is loaded with this command.
+- The database is initialized with a new STORE instance. A empty database is saved to binary file. An existing database is also loaded if a database with input string exists.
 
 ```[instance] = STORE(<string>)```
  
