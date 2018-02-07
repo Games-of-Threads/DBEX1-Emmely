@@ -1,6 +1,6 @@
 import store
 
-store = STORE("fruits")
+store = store.STORE("fruits")
 print('In-memory')
 store.print_in_mem()
 store.tell_me_about_the_store()
